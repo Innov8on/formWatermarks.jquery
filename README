@@ -1,0 +1,15 @@
+== formWatermarks.jquery
+
+Puts labels inside form's input fields.
+
+== Requirements:
+
+  jQuery >= 1.4
+
+== Usage:
+
+  jQuery('input').formWatermarks();
+
+== Copyright:
+
+  Copyright (c) 2011 innov8on. See LICENSE for details.
