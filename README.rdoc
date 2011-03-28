@@ -7,15 +7,13 @@ Plugin that puts labels inside form's input fields. Works with IE, FF, Safari (i
 jQuery >= 1.4
 
 == Usage:
-  Assuming we have given HTML:
-    <label for="field_id">Label</label>
-    <input type="text" id="field_id" name="something">
-  (Label's for attribute must match field's id.)  
+Assuming we have given HTML:
+  <label for="field_id">Label</label>
+  <input type="text" id="field_id" name="something">
+(Label's for attribute must match field's id.)  
    
-  We can put label inside field with:
-    jQuery('input').formWatermarks();
-**/
-jQuery('input').formWatermarks();
+We can put label inside field with:
+  jQuery('input').formWatermarks();
 
 == Copyright:
 
