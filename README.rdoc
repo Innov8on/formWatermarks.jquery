@@ -1,6 +1,9 @@
 == formWatermarks.jquery
 
-Plugin that puts labels inside form's input fields. Works with IE, FF, Safari (including mobile - iPhone & iPad) and others.
+Plugin that puts labels inside form's input fields. Works with IE (7,8,9), FF, Chrome, Opera, Safari (including mobile - iPhone & iPad) and others.
+
+Supported input types: 
+  text, password, tel, email.
 
 == Requirements:
 
