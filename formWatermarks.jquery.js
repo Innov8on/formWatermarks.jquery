@@ -1,11 +1,19 @@
 /** Puts labels inside form's input fields.
-* Requires jQuery 1.4
-*
-* Example usage:
-*  jQuery('input').formWatermarks();
+ * Requires jQuery 1.4
+ * Author: Dawid Sklodowski
+ *         dawid.sklodowski@gmail.com *
+ * Version: 0.1
+ *
+ * Example usage:
+ * Assuming we have given HTML:
+ * <label for="field_id">Label</label>
+ * <input type="text" id="field_id" name="something">
+ * (Label's _for_ attribute must match field's _id_.)
+ *  
+ * We can put label inside field with:
+ *  jQuery('input').formWatermarks();
 **/
 jQuery.fn.formWatermarks = function() {
-
 
  /** Copy attributes from other element
   * @param other (jQuery collection or String) - element to copy attributes from
@@ -23,7 +31,7 @@ jQuery.fn.formWatermarks = function() {
           var name = other$[0].attributes[i].nodeName.toString().toLowerCase();
           var value = other$[0].attributes[i].nodeValue.toString();
           if (typeof copyEvents === 'undefined' || !copyEvents || !name.match(/^on[a-z]+/)) {
-            if (typeof omit === 'undefined' || !name.match(omit)) {
+            if (typeof omit === 'undefined' || omit !== name) {
               this$[0][name] = value;
             }
           }
@@ -43,7 +51,6 @@ jQuery.fn.formWatermarks = function() {
     return this.each(function() {
       var this$ = jQuery(this);
       var events = other$.data('events');
-      var e;
       if (events) {
         for (e in events) {
           if (events.hasOwnProperty(e) && typeof events[e] !== 'function') {
@@ -78,7 +85,7 @@ jQuery.fn.formWatermarks = function() {
       return this$;
     } catch(e) {
       var newElement = jQuery('<' + this$[0].tagName + '>', {type: newType});
-      copyAttributesFrom.call(newElement, this$, false, /type/);
+      copyAttributesFrom.call(newElement, this$, false, 'type');
       copyEventsFrom.call(newElement, this$);
       newElement.data('_fw_label_text', this$.data('_fw_label_text'));
       newElement.data('_fw_password', this$.data('_fw_password'));
@@ -129,7 +136,7 @@ jQuery.fn.formWatermarks = function() {
 
   return this.each(function() {
     var this$ = jQuery(this);
-    if (this.tagName.toLowerCase() !== 'input' || !this$.attr('type').match(/password|text/)) {
+    if (this.tagName.toLowerCase() !== 'input' || !this$.attr('type').match(/password|text|email|tel/)) {
       return this$;
     }
     this$.data('_fw_password', (this$.attr('type') === 'password'));

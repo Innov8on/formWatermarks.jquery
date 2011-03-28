@@ -1,13 +1,20 @@
 == formWatermarks.jquery
 
-Puts labels inside form's input fields.
+Plugin that puts labels inside form's input fields. Works with IE, FF, Safari (including mobile - iPhone & iPad) and others.
 
 == Requirements:
 
 jQuery >= 1.4
 
 == Usage:
-
+  Assuming we have given HTML:
+    <label for="field_id">Label</label>
+    <input type="text" id="field_id" name="something">
+  (Label's for attribute must match field's id.)  
+   
+  We can put label inside field with:
+    jQuery('input').formWatermarks();
+**/
 jQuery('input').formWatermarks();
 
 == Copyright:
